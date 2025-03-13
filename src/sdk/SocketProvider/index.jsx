@@ -1,13 +1,19 @@
 import { io } from "socket.io-client";
-import { createContext, useContext, useState, useEffect } from "react";
-import { v4 as uuidv4} from "uuid"
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const SocketContext = createContext(null);
 
 export const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   const [online, setOnline] = useState(false);
-  const id = uuidv4()
+  const id = uuidv4();
 
   useEffect(() => {
     const socketConnection = io(
@@ -18,12 +24,10 @@ export const SocketContextProvider = ({ children }) => {
     setSocket(socketConnection);
 
     socketConnection.on("connect", () => {
-      console.log("Conectado ao servidor Socket.IO");
       setOnline(true);
     });
 
-    socketConnection.on("message", (data) => {
-      console.log("Mensagem recebida do servidor:", data);
+    socketConnection.on("message", () => {
       setOnline(false);
     });
 
@@ -32,22 +36,59 @@ export const SocketContextProvider = ({ children }) => {
     };
   }, []);
 
+  const customEventEmit = useCallback(({ type, data }) => {
+    let response = {};
+
+    if (type === "success") {
+      response = {
+        type: "success",
+        message: "The image capture was successful.",
+        ...data,
+      };
+    }
+
+    if (type === "finish") {
+      response = {
+        type: "finish",
+      };
+    }
+
+    if (type === "close") {
+      response = {
+        type: "close",
+      };
+    }
+
+    if (type === "timeout") {
+      response = {
+        type: "timeout",
+      };
+    }
+
+    const event = new CustomEvent("multi-event", {
+      detail: { response },
+      cancelable: true,
+      bubbles: true,
+    });
+
+    window.dispatchEvent(event);
+  }, []);
+
   useEffect(() => {
     if (online) {
       socket.on("message", (data) => {
-        const event = new CustomEvent("base64", {
-          detail: { event: data },
-          cancelable: true,
-          bubbles: true,
-        });
+        const response = {
+          id: data.end2end_id,
+          base64: data.image.base64,
+        };
 
-        window.dispatchEvent(event);
+        customEventEmit({ type: "success", data: response });
       });
     }
-  }, [online]);
+  }, [online, customEventEmit]);
 
   return (
-    <SocketContext.Provider value={{ online,id }}>
+    <SocketContext.Provider value={{ online, id, customEventEmit }}>
       {children}
     </SocketContext.Provider>
   );

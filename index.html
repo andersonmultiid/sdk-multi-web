@@ -14,8 +14,7 @@
       const script = document.createElement("script");
       script.type = "module";
       script.id = "multiSdkCaptureScript";
-      script.src =
-        "https://cdn.jsdelivr.net/gh/andersonmultiid/sdk-multi-web@main/dist/multi-sdk-web.es.js";
+      script.src = "dist/multi-sdk-web.es.js";
 
       document.body.appendChild(script);
 
@@ -30,8 +29,8 @@
 
         document.body.appendChild(component);
 
-        window.addEventListener("base64", (e) => {
-          console.log(e.detail.event.image);
+        window.addEventListener("multi-event", (e) => {
+          console.log(e.detail);
         });
       });
     </script>
