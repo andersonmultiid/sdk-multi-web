@@ -8,6 +8,8 @@ const MultiIdCaptureWC = r2wc(MultiIdCapture, {
   },
 });
 
-if (!customElements.get("multi-id-capture")) {
-  customElements.define("multi-id-capture", MultiIdCaptureWC);
+if (customElements.get('multi-id-capture')) {
+  customElements.delete('multi-id-capture');
 }
+
+customElements.define('multi-id-capture', MultiIdCaptureWC);
