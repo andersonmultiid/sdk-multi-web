@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      const script = document.createElement("script");
+      script.type = "module";
+      script.id = "multiSdkCaptureScript";
+      script.src = "dist/multi-sdk-web.es.js";
+
+      document.body.appendChild(script);
+
+      script.addEventListener("load", () => {
+        const component = document.createElement("multi-id-capture");
+
+        component.setAttribute(
+          "secret",
+          "485340b8-814b-4d70-8609-4a66d37b602d"
+        );
+        component.setAttribute("user", "anderson@gmail.com");
+
+        document.body.appendChild(component);
+
+        window.addEventListener("base64", (e) => {
+        console.log(e.detail.event.image);
+      });
+      });
+
+    
+    </script>
+  </body>
+</html>
