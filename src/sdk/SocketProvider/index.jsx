@@ -17,7 +17,7 @@ export const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     const socketConnection = io(
-      "https://service-capture-437894375097.us-central1.run.app",
+      "https://service-capture-437894375097.us-central1.run.app/",
       { autoConnect: true }
     );
 
@@ -70,6 +70,7 @@ export const SocketContextProvider = ({ children }) => {
       cancelable: true,
       bubbles: true,
     });
+
 
     window.dispatchEvent(event);
   }, []);

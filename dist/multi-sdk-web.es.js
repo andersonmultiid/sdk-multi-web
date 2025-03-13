@@ -23758,7 +23758,7 @@ const m_ = Go.createContext(null), DO = ({ children: m }) => {
   const [f, p] = Go.useState(null), [S, L] = Go.useState(!1), Y = kO();
   Go.useEffect(() => {
     const R = gy(
-      "https://service-capture-437894375097.us-central1.run.app",
+      "https://service-capture-437894375097.us-central1.run.app/",
       { autoConnect: !0 }
     );
     return p(R), R.on("connect", () => {
