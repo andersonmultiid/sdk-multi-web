@@ -23809,4 +23809,4 @@ const m_ = Yl.createContext(null), DO = ({ children: m }) => {
     user: "string"
   }
 });
-customElements.define("multi-id-capture", MO);
+customElements.get("multi-id-capture") || customElements.define("multi-id-capture", MO);
