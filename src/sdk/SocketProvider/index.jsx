@@ -36,44 +36,56 @@ export const SocketContextProvider = ({ children }) => {
     };
   }, []);
 
-  const customEventEmit = useCallback(({ type, data }) => {
-    let response = {};
+  const removeScript = useCallback(() => {
+    const safeId = document.getElementById("GoSaffeCaptureComponent");
 
-    if (type === "success") {
-      response = {
-        type: "success",
-        message: "The image capture was successful.",
-        ...data,
-      };
+    if (safeId) {
+      safeId.remove();
     }
-
-    if (type === "finish") {
-      response = {
-        type: "finish",
-      };
-    }
-
-    if (type === "close") {
-      response = {
-        type: "close",
-      };
-    }
-
-    if (type === "timeout") {
-      response = {
-        type: "timeout",
-      };
-    }
-
-    const event = new CustomEvent("multi-event", {
-      detail: { response },
-      cancelable: true,
-      bubbles: true,
-    });
-
-
-    window.dispatchEvent(event);
   }, []);
+
+  const customEventEmit = useCallback(
+    ({ type, data }) => {
+      let response = {};
+
+      if (type === "success") {
+        response = {
+          type: "success",
+          message: "The image capture was successful.",
+          ...data,
+        };
+      }
+
+      if (type === "finish") {
+        response = {
+          type: "finish",
+        };
+        removeScript();
+      }
+
+      if (type === "close") {
+        response = {
+          type: "close",
+        };
+        removeScript();
+      }
+
+      if (type === "timeout") {
+        response = {
+          type: "timeout",
+        };
+      }
+
+      const event = new CustomEvent("multi-event", {
+        detail: { response },
+        cancelable: true,
+        bubbles: true,
+      });
+
+      window.dispatchEvent(event);
+    },
+    [removeScript]
+  );
 
   useEffect(() => {
     if (online) {
