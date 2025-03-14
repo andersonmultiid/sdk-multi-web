@@ -19,6 +19,15 @@ const SaffeCapture = ({ secret, user }) => {
       );
     }
 
+    if (type === "finish") {
+      response = {
+        type: "finish",
+      };
+      window.dispatchEvent(
+        new CustomEvent("multi-event", { detail: { ...response } })
+      );
+    }
+
     if (type === "close") {
       response = {
         type: "close",

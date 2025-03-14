@@ -24,7 +24,7 @@
             script = document.createElement("script");
             script.type = "module";
             script.id = "multiSdkCaptureScript";
-            script.src = "dist/multi-web.es.js"; // Certifique-se de que este caminho está correto
+            script.src = "dist/web-multi-sdk.es.js"; // Certifique-se de que este caminho está correto
 
             // Adicionando o script ao corpo do documento
             document.body.appendChild(script);
@@ -47,7 +47,7 @@
                 };
 
                 // Adicionando um ouvinte de evento para capturar os eventos do componente
-                window.addEventListener("multi-event", eventListener,{once:true});
+                window.addEventListener("multi-event", eventListener);
             });
         }
 
