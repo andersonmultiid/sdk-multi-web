@@ -1,9 +1,8 @@
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
-  useState,
+  useState
 } from "react";
 import { io } from "socket.io-client";
 import { v4 as uuidv4 } from "uuid";
@@ -16,10 +15,9 @@ export const SocketContextProvider = ({ children }) => {
   const id = uuidv4();
 
   useEffect(() => {
-    const socketConnection = io(
-      "https://service-capture-437894375097.us-central1.run.app/",
-      { autoConnect: true }
-    );
+    const url = URL_SOCKET_WEB;
+
+    const socketConnection = io(url, { autoConnect: true });
 
     setSocket(socketConnection);
 
@@ -36,70 +34,8 @@ export const SocketContextProvider = ({ children }) => {
     };
   }, []);
 
-  const customEventEmit = useCallback(
-    ({ type, data }) => {
-      let response = {};
-
-      if (type === "success") {
-        response = {
-          type: "success",
-          message: "The image capture was successful.",
-          ...data,
-        };
-        window.dispatchEvent(
-          new CustomEvent("multi-event", { detail: { response } })
-        );
-      }
-
-      if (type === "finish") {
-        response = {
-          type: "finish",
-        };
-        window.dispatchEvent(
-          new CustomEvent("multi-event", { detail: { response } })
-        );
-      }
-
-      if (type === "close") {
-        response = {
-          type: "close",
-        };
-        window.dispatchEvent(
-          new CustomEvent("multi-event", { detail: { response } })
-        );
-      }
-
-      if (type === "timeout") {
-        response = {
-          type: "timeout",
-        };
-        window.dispatchEvent(
-          new CustomEvent("multi-event", { detail: { response } })
-        );
-      }
-    },
-    []
-  );
-
-  useEffect(() => {
-    if (online) {
-      socket.on("message", (data) => {
-        const response = {
-          id: data.end2end_id,
-          base64: data.image.base64,
-        };
-
-        customEventEmit({ type: "success", data: response });
-      });
-
-      return () => {
-        socket.off("message");
-      };
-    }
-  }, [online]);
-
   return (
-    <SocketContext.Provider value={{ online, id, customEventEmit }}>
+    <SocketContext.Provider value={{ online, id, socket }}>
       {children}
     </SocketContext.Provider>
   );

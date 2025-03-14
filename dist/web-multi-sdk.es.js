@@ -15,7 +15,7 @@ var zT;
 function aD() {
   if (zT) return Rt;
   zT = 1;
-  var m = Symbol.for("react.element"), d = Symbol.for("react.portal"), p = Symbol.for("react.fragment"), S = Symbol.for("react.strict_mode"), N = Symbol.for("react.profiler"), I = Symbol.for("react.provider"), ee = Symbol.for("react.context"), R = Symbol.for("react.forward_ref"), le = Symbol.for("react.suspense"), ue = Symbol.for("react.memo"), ie = Symbol.for("react.lazy"), Oe = Symbol.iterator;
+  var m = Symbol.for("react.element"), d = Symbol.for("react.portal"), p = Symbol.for("react.fragment"), S = Symbol.for("react.strict_mode"), N = Symbol.for("react.profiler"), I = Symbol.for("react.provider"), ee = Symbol.for("react.context"), R = Symbol.for("react.forward_ref"), le = Symbol.for("react.suspense"), se = Symbol.for("react.memo"), ie = Symbol.for("react.lazy"), Oe = Symbol.iterator;
   function ne(L) {
     return L === null || typeof L != "object" ? null : (L = Oe && L[Oe] || L["@@iterator"], typeof L == "function" ? L : null);
   }
@@ -166,7 +166,7 @@ function aD() {
   }, Rt.isValidElement = At, Rt.lazy = function(L) {
     return { $$typeof: ie, _payload: { _status: -1, _result: L }, _init: yt };
   }, Rt.memo = function(L, Q) {
-    return { $$typeof: ue, type: L, compare: Q === void 0 ? null : Q };
+    return { $$typeof: se, type: L, compare: Q === void 0 ? null : Q };
   }, Rt.startTransition = function(L) {
     var Q = W.transition;
     W.transition = {};
@@ -223,7 +223,7 @@ function iD() {
      */
     p.NODE_ENV !== "production" && function() {
       typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ < "u" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart == "function" && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-      var S = "18.3.1", N = Symbol.for("react.element"), I = Symbol.for("react.portal"), ee = Symbol.for("react.fragment"), R = Symbol.for("react.strict_mode"), le = Symbol.for("react.profiler"), ue = Symbol.for("react.provider"), ie = Symbol.for("react.context"), Oe = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), _e = Symbol.for("react.suspense_list"), te = Symbol.for("react.memo"), Ce = Symbol.for("react.lazy"), Ve = Symbol.for("react.offscreen"), jt = Symbol.iterator, Tt = "@@iterator";
+      var S = "18.3.1", N = Symbol.for("react.element"), I = Symbol.for("react.portal"), ee = Symbol.for("react.fragment"), R = Symbol.for("react.strict_mode"), le = Symbol.for("react.profiler"), se = Symbol.for("react.provider"), ie = Symbol.for("react.context"), Oe = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), _e = Symbol.for("react.suspense_list"), te = Symbol.for("react.memo"), Ce = Symbol.for("react.lazy"), Ve = Symbol.for("react.offscreen"), jt = Symbol.iterator, Tt = "@@iterator";
       function nt(g) {
         if (g === null || typeof g != "object")
           return null;
@@ -460,7 +460,7 @@ function iD() {
             case ie:
               var w = g;
               return Dr(w) + ".Consumer";
-            case ue:
+            case se:
               var F = g;
               return Dr(F._context) + ".Provider";
             case Oe:
@@ -733,7 +733,7 @@ function iD() {
           _globalName: null
         };
         w.Provider = {
-          $$typeof: ue,
+          $$typeof: se,
           _context: w
         };
         var F = !1, B = !1, ae = !1;
@@ -888,7 +888,7 @@ Your code should look like:
       var b;
       b = Symbol.for("react.module.reference");
       function G(g) {
-        return !!(typeof g == "string" || typeof g == "function" || g === ee || g === le || Ht || g === R || g === ne || g === _e || He || g === Ve || pn || qt || St || typeof g == "object" && g !== null && (g.$$typeof === Ce || g.$$typeof === te || g.$$typeof === ue || g.$$typeof === ie || g.$$typeof === Oe || // This needs to include all possible module reference object
+        return !!(typeof g == "string" || typeof g == "function" || g === ee || g === le || Ht || g === R || g === ne || g === _e || He || g === Ve || pn || qt || St || typeof g == "object" && g !== null && (g.$$typeof === Ce || g.$$typeof === te || g.$$typeof === se || g.$$typeof === ie || g.$$typeof === Oe || // This needs to include all possible module reference object
         // types supported by any Flight configuration anywhere since
         // we don't know which Flight build this will end up being used
         // with.
@@ -1540,20 +1540,20 @@ function oD() {
         return ee.now() - R;
       };
     }
-    var le = [], ue = [], ie = 1, Oe = null, ne = 3, _e = !1, te = !1, Ce = !1, Ve = typeof setTimeout == "function" ? setTimeout : null, jt = typeof clearTimeout == "function" ? clearTimeout : null, Tt = typeof setImmediate < "u" ? setImmediate : null;
+    var le = [], se = [], ie = 1, Oe = null, ne = 3, _e = !1, te = !1, Ce = !1, Ve = typeof setTimeout == "function" ? setTimeout : null, jt = typeof clearTimeout == "function" ? clearTimeout : null, Tt = typeof setImmediate < "u" ? setImmediate : null;
     typeof navigator < "u" && navigator.scheduling !== void 0 && navigator.scheduling.isInputPending !== void 0 && navigator.scheduling.isInputPending.bind(navigator.scheduling);
     function nt(W) {
-      for (var we = p(ue); we !== null; ) {
-        if (we.callback === null) S(ue);
-        else if (we.startTime <= W) S(ue), we.sortIndex = we.expirationTime, d(le, we);
+      for (var we = p(se); we !== null; ) {
+        if (we.callback === null) S(se);
+        else if (we.startTime <= W) S(se), we.sortIndex = we.expirationTime, d(le, we);
         else break;
-        we = p(ue);
+        we = p(se);
       }
     }
     function Pe(W) {
       if (Ce = !1, nt(W), !te) if (p(le) !== null) te = !0, yt(Ot);
       else {
-        var we = p(ue);
+        var we = p(se);
         we !== null && ut(Pe, we.startTime - W);
       }
     }
@@ -1572,7 +1572,7 @@ function oD() {
         }
         if (Oe !== null) var Ae = !0;
         else {
-          var qe = p(ue);
+          var qe = p(se);
           qe !== null && ut(Pe, qe.startTime - we), Ae = !1;
         }
         return Ae;
@@ -1681,7 +1681,7 @@ function oD() {
         default:
           Q = 5e3;
       }
-      return Q = de + Q, W = { id: ie++, callback: we, priorityLevel: W, startTime: de, expirationTime: Q, sortIndex: -1 }, de > L ? (W.sortIndex = de, d(ue, W), p(le) === null && W === p(ue) && (Ce ? (jt(Ye), Ye = -1) : Ce = !0, ut(Pe, de - L))) : (W.sortIndex = Q, d(le, W), te || _e || (te = !0, yt(Ot))), W;
+      return Q = de + Q, W = { id: ie++, callback: we, priorityLevel: W, startTime: de, expirationTime: Q, sortIndex: -1 }, de > L ? (W.sortIndex = de, d(se, W), p(le) === null && W === p(se) && (Ce ? (jt(Ye), Ye = -1) : Ce = !0, ut(Pe, de - L))) : (W.sortIndex = Q, d(le, W), te || _e || (te = !0, yt(Ot))), W;
     }, m.unstable_shouldYield = pn, m.unstable_wrapCallback = function(W) {
       var we = ne;
       return function() {
@@ -1728,7 +1728,7 @@ function lD() {
       function R(oe, ze, it) {
         for (var Ut = it; Ut > 0; ) {
           var ln = Ut - 1 >>> 1, un = oe[ln];
-          if (ue(un, ze) > 0)
+          if (se(un, ze) > 0)
             oe[ln] = ze, oe[Ut] = un, Ut = ln;
           else
             return;
@@ -1737,15 +1737,15 @@ function lD() {
       function le(oe, ze, it) {
         for (var Ut = it, ln = oe.length, un = ln >>> 1; Ut < un; ) {
           var sn = (Ut + 1) * 2 - 1, Xn = oe[sn], an = sn + 1, Wt = oe[an];
-          if (ue(Xn, ze) < 0)
-            an < ln && ue(Wt, Xn) < 0 ? (oe[Ut] = Wt, oe[an] = ze, Ut = an) : (oe[Ut] = Xn, oe[sn] = ze, Ut = sn);
-          else if (an < ln && ue(Wt, ze) < 0)
+          if (se(Xn, ze) < 0)
+            an < ln && se(Wt, Xn) < 0 ? (oe[Ut] = Wt, oe[an] = ze, Ut = an) : (oe[Ut] = Xn, oe[sn] = ze, Ut = sn);
+          else if (an < ln && se(Wt, ze) < 0)
             oe[Ut] = Wt, oe[an] = ze, Ut = an;
           else
             return;
         }
       }
-      function ue(oe, ze) {
+      function se(oe, ze) {
         var it = oe.sortIndex - ze.sortIndex;
         return it !== 0 ? it : oe.id - ze.id;
       }
@@ -2002,9 +2002,9 @@ function uD() {
   function ee(n, r) {
     for (N[n] = r, n = 0; n < r.length; n++) S.add(r[n]);
   }
-  var R = !(typeof window > "u" || typeof window.document > "u" || typeof window.document.createElement > "u"), le = Object.prototype.hasOwnProperty, ue = /^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/, ie = {}, Oe = {};
+  var R = !(typeof window > "u" || typeof window.document > "u" || typeof window.document.createElement > "u"), le = Object.prototype.hasOwnProperty, se = /^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/, ie = {}, Oe = {};
   function ne(n) {
-    return le.call(Oe, n) ? !0 : le.call(ie, n) ? !1 : ue.test(n) ? Oe[n] = !0 : (ie[n] = !0, !1);
+    return le.call(Oe, n) ? !0 : le.call(ie, n) ? !1 : se.test(n) ? Oe[n] = !0 : (ie[n] = !0, !1);
   }
   function _e(n, r, o, u) {
     if (o !== null && o.type === 0) return !1;
@@ -7191,7 +7191,7 @@ function sD() {
         s.unshift("Warning: " + t), Function.prototype.apply.call(console[e], console, s);
       }
     }
-    var ue = 0, ie = 1, Oe = 2, ne = 3, _e = 4, te = 5, Ce = 6, Ve = 7, jt = 8, Tt = 9, nt = 10, Pe = 11, Ot = 12, De = 13, pt = 14, Ye = 15, Cn = 16, At = 17, pn = 18, qt = 19, St = 21, He = 22, Ht = 23, yt = 24, ut = 25, W = !0, we = !1, de = !1, L = !1, Q = !1, Ae = !0, qe = !0, Ge = !0, st = !0, _t = /* @__PURE__ */ new Set(), Je = {}, Et = {};
+    var se = 0, ie = 1, Oe = 2, ne = 3, _e = 4, te = 5, Ce = 6, Ve = 7, jt = 8, Tt = 9, nt = 10, Pe = 11, Ot = 12, De = 13, pt = 14, Ye = 15, Cn = 16, At = 17, pn = 18, qt = 19, St = 21, He = 22, Ht = 23, yt = 24, ut = 25, W = !0, we = !1, de = !1, L = !1, Q = !1, Ae = !0, qe = !0, Ge = !0, st = !0, _t = /* @__PURE__ */ new Set(), Je = {}, Et = {};
     function $t(e, t) {
       Dn(e, t), Dn(e + "Capture", t);
     }
@@ -7939,7 +7939,7 @@ function sD() {
           return Gr("Suspense");
         case qt:
           return Gr("SuspenseList");
-        case ue:
+        case se:
         case Oe:
         case Ye:
           return nl(e.type);
@@ -8069,7 +8069,7 @@ Error generating stack: ` + i.message + `
           return "TracingMarker";
         // The display name for this tags come from the user-provided type:
         case ie:
-        case ue:
+        case se:
         case At:
         case Oe:
         case pt:
@@ -14595,7 +14595,7 @@ See https://reactjs.org/link/refs-must-have-owner for more information.`);
         ki === null ? ki = [e] : ki.push(e);
       }
     }
-    function se() {
+    function ue() {
       {
         var e = q;
         ki !== null && (Bu++, ki[Bu] !== e && Wb(e));
@@ -15309,25 +15309,25 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           return rr(e);
         },
         useCallback: function(e, t) {
-          return q = "useCallback", se(), cS(e, t);
+          return q = "useCallback", ue(), cS(e, t);
         },
         useContext: function(e) {
-          return q = "useContext", se(), rr(e);
+          return q = "useContext", ue(), rr(e);
         },
         useEffect: function(e, t) {
-          return q = "useEffect", se(), Tm(e, t);
+          return q = "useEffect", ue(), Tm(e, t);
         },
         useImperativeHandle: function(e, t, a) {
-          return q = "useImperativeHandle", se(), sS(e, t, a);
+          return q = "useImperativeHandle", ue(), sS(e, t, a);
         },
         useInsertionEffect: function(e, t) {
-          return q = "useInsertionEffect", se(), lS(e, t);
+          return q = "useInsertionEffect", ue(), lS(e, t);
         },
         useLayoutEffect: function(e, t) {
-          return q = "useLayoutEffect", se(), uS(e, t);
+          return q = "useLayoutEffect", ue(), uS(e, t);
         },
         useMemo: function(e, t) {
-          q = "useMemo", se();
+          q = "useMemo", ue();
           var a = Se.current;
           Se.current = Io;
           try {
@@ -15337,7 +15337,7 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useReducer: function(e, t, a) {
-          q = "useReducer", se();
+          q = "useReducer", ue();
           var i = Se.current;
           Se.current = Io;
           try {
@@ -15347,10 +15347,10 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useRef: function(e) {
-          return q = "useRef", se(), oS(e);
+          return q = "useRef", ue(), oS(e);
         },
         useState: function(e) {
-          q = "useState", se();
+          q = "useState", ue();
           var t = Se.current;
           Se.current = Io;
           try {
@@ -15360,22 +15360,22 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useDebugValue: function(e, t) {
-          return q = "useDebugValue", se(), void 0;
+          return q = "useDebugValue", ue(), void 0;
         },
         useDeferredValue: function(e) {
-          return q = "useDeferredValue", se(), dS(e);
+          return q = "useDeferredValue", ue(), dS(e);
         },
         useTransition: function() {
-          return q = "useTransition", se(), pS();
+          return q = "useTransition", ue(), pS();
         },
         useMutableSource: function(e, t, a) {
-          return q = "useMutableSource", se(), void 0;
+          return q = "useMutableSource", ue(), void 0;
         },
         useSyncExternalStore: function(e, t, a) {
-          return q = "useSyncExternalStore", se(), rS(e, t, a);
+          return q = "useSyncExternalStore", ue(), rS(e, t, a);
         },
         useId: function() {
-          return q = "useId", se(), vS();
+          return q = "useId", ue(), vS();
         },
         unstable_isNewReconciler: we
       }, NC = {
@@ -15383,25 +15383,25 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           return rr(e);
         },
         useCallback: function(e, t) {
-          return q = "useCallback", se(), km(e, t);
+          return q = "useCallback", ue(), km(e, t);
         },
         useContext: function(e) {
-          return q = "useContext", se(), rr(e);
+          return q = "useContext", ue(), rr(e);
         },
         useEffect: function(e, t) {
-          return q = "useEffect", se(), jp(e, t);
+          return q = "useEffect", ue(), jp(e, t);
         },
         useImperativeHandle: function(e, t, a) {
-          return q = "useImperativeHandle", se(), bm(e, t, a);
+          return q = "useImperativeHandle", ue(), bm(e, t, a);
         },
         useInsertionEffect: function(e, t) {
-          return q = "useInsertionEffect", se(), _m(e, t);
+          return q = "useInsertionEffect", ue(), _m(e, t);
         },
         useLayoutEffect: function(e, t) {
-          return q = "useLayoutEffect", se(), wm(e, t);
+          return q = "useLayoutEffect", ue(), wm(e, t);
         },
         useMemo: function(e, t) {
-          q = "useMemo", se();
+          q = "useMemo", ue();
           var a = Se.current;
           Se.current = no;
           try {
@@ -15411,7 +15411,7 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useReducer: function(e, t, a) {
-          q = "useReducer", se();
+          q = "useReducer", ue();
           var i = Se.current;
           Se.current = no;
           try {
@@ -15421,10 +15421,10 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useRef: function(e) {
-          return q = "useRef", se(), Cm();
+          return q = "useRef", ue(), Cm();
         },
         useState: function(e) {
-          q = "useState", se();
+          q = "useState", ue();
           var t = Se.current;
           Se.current = no;
           try {
@@ -15434,22 +15434,22 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useDebugValue: function(e, t) {
-          return q = "useDebugValue", se(), xm();
+          return q = "useDebugValue", ue(), xm();
         },
         useDeferredValue: function(e) {
-          return q = "useDeferredValue", se(), EC(e);
+          return q = "useDeferredValue", ue(), EC(e);
         },
         useTransition: function() {
-          return q = "useTransition", se(), TC();
+          return q = "useTransition", ue(), TC();
         },
         useMutableSource: function(e, t, a) {
-          return q = "useMutableSource", se(), void 0;
+          return q = "useMutableSource", ue(), void 0;
         },
         useSyncExternalStore: function(e, t, a) {
-          return q = "useSyncExternalStore", se(), Sm(e, t);
+          return q = "useSyncExternalStore", ue(), Sm(e, t);
         },
         useId: function() {
-          return q = "useId", se(), Om();
+          return q = "useId", ue(), Om();
         },
         unstable_isNewReconciler: we
       }, MC = {
@@ -15457,25 +15457,25 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           return rr(e);
         },
         useCallback: function(e, t) {
-          return q = "useCallback", se(), km(e, t);
+          return q = "useCallback", ue(), km(e, t);
         },
         useContext: function(e) {
-          return q = "useContext", se(), rr(e);
+          return q = "useContext", ue(), rr(e);
         },
         useEffect: function(e, t) {
-          return q = "useEffect", se(), jp(e, t);
+          return q = "useEffect", ue(), jp(e, t);
         },
         useImperativeHandle: function(e, t, a) {
-          return q = "useImperativeHandle", se(), bm(e, t, a);
+          return q = "useImperativeHandle", ue(), bm(e, t, a);
         },
         useInsertionEffect: function(e, t) {
-          return q = "useInsertionEffect", se(), _m(e, t);
+          return q = "useInsertionEffect", ue(), _m(e, t);
         },
         useLayoutEffect: function(e, t) {
-          return q = "useLayoutEffect", se(), wm(e, t);
+          return q = "useLayoutEffect", ue(), wm(e, t);
         },
         useMemo: function(e, t) {
-          q = "useMemo", se();
+          q = "useMemo", ue();
           var a = Se.current;
           Se.current = Nm;
           try {
@@ -15485,7 +15485,7 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useReducer: function(e, t, a) {
-          q = "useReducer", se();
+          q = "useReducer", ue();
           var i = Se.current;
           Se.current = Nm;
           try {
@@ -15495,10 +15495,10 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useRef: function(e) {
-          return q = "useRef", se(), Cm();
+          return q = "useRef", ue(), Cm();
         },
         useState: function(e) {
-          q = "useState", se();
+          q = "useState", ue();
           var t = Se.current;
           Se.current = Nm;
           try {
@@ -15508,22 +15508,22 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useDebugValue: function(e, t) {
-          return q = "useDebugValue", se(), xm();
+          return q = "useDebugValue", ue(), xm();
         },
         useDeferredValue: function(e) {
-          return q = "useDeferredValue", se(), CC(e);
+          return q = "useDeferredValue", ue(), CC(e);
         },
         useTransition: function() {
-          return q = "useTransition", se(), _C();
+          return q = "useTransition", ue(), _C();
         },
         useMutableSource: function(e, t, a) {
-          return q = "useMutableSource", se(), void 0;
+          return q = "useMutableSource", ue(), void 0;
         },
         useSyncExternalStore: function(e, t, a) {
-          return q = "useSyncExternalStore", se(), Sm(e, t);
+          return q = "useSyncExternalStore", ue(), Sm(e, t);
         },
         useId: function() {
-          return q = "useId", se(), Om();
+          return q = "useId", ue(), Om();
         },
         unstable_isNewReconciler: we
       }, Io = {
@@ -15605,25 +15605,25 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           return hS(), rr(e);
         },
         useCallback: function(e, t) {
-          return q = "useCallback", Xe(), se(), km(e, t);
+          return q = "useCallback", Xe(), ue(), km(e, t);
         },
         useContext: function(e) {
-          return q = "useContext", Xe(), se(), rr(e);
+          return q = "useContext", Xe(), ue(), rr(e);
         },
         useEffect: function(e, t) {
-          return q = "useEffect", Xe(), se(), jp(e, t);
+          return q = "useEffect", Xe(), ue(), jp(e, t);
         },
         useImperativeHandle: function(e, t, a) {
-          return q = "useImperativeHandle", Xe(), se(), bm(e, t, a);
+          return q = "useImperativeHandle", Xe(), ue(), bm(e, t, a);
         },
         useInsertionEffect: function(e, t) {
-          return q = "useInsertionEffect", Xe(), se(), _m(e, t);
+          return q = "useInsertionEffect", Xe(), ue(), _m(e, t);
         },
         useLayoutEffect: function(e, t) {
-          return q = "useLayoutEffect", Xe(), se(), wm(e, t);
+          return q = "useLayoutEffect", Xe(), ue(), wm(e, t);
         },
         useMemo: function(e, t) {
-          q = "useMemo", Xe(), se();
+          q = "useMemo", Xe(), ue();
           var a = Se.current;
           Se.current = no;
           try {
@@ -15633,7 +15633,7 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useReducer: function(e, t, a) {
-          q = "useReducer", Xe(), se();
+          q = "useReducer", Xe(), ue();
           var i = Se.current;
           Se.current = no;
           try {
@@ -15643,10 +15643,10 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useRef: function(e) {
-          return q = "useRef", Xe(), se(), Cm();
+          return q = "useRef", Xe(), ue(), Cm();
         },
         useState: function(e) {
-          q = "useState", Xe(), se();
+          q = "useState", Xe(), ue();
           var t = Se.current;
           Se.current = no;
           try {
@@ -15656,22 +15656,22 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useDebugValue: function(e, t) {
-          return q = "useDebugValue", Xe(), se(), xm();
+          return q = "useDebugValue", Xe(), ue(), xm();
         },
         useDeferredValue: function(e) {
-          return q = "useDeferredValue", Xe(), se(), EC(e);
+          return q = "useDeferredValue", Xe(), ue(), EC(e);
         },
         useTransition: function() {
-          return q = "useTransition", Xe(), se(), TC();
+          return q = "useTransition", Xe(), ue(), TC();
         },
         useMutableSource: function(e, t, a) {
-          return q = "useMutableSource", Xe(), se(), void 0;
+          return q = "useMutableSource", Xe(), ue(), void 0;
         },
         useSyncExternalStore: function(e, t, a) {
-          return q = "useSyncExternalStore", Xe(), se(), Sm(e, t);
+          return q = "useSyncExternalStore", Xe(), ue(), Sm(e, t);
         },
         useId: function() {
-          return q = "useId", Xe(), se(), Om();
+          return q = "useId", Xe(), ue(), Om();
         },
         unstable_isNewReconciler: we
       }, Nm = {
@@ -15679,25 +15679,25 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           return hS(), rr(e);
         },
         useCallback: function(e, t) {
-          return q = "useCallback", Xe(), se(), km(e, t);
+          return q = "useCallback", Xe(), ue(), km(e, t);
         },
         useContext: function(e) {
-          return q = "useContext", Xe(), se(), rr(e);
+          return q = "useContext", Xe(), ue(), rr(e);
         },
         useEffect: function(e, t) {
-          return q = "useEffect", Xe(), se(), jp(e, t);
+          return q = "useEffect", Xe(), ue(), jp(e, t);
         },
         useImperativeHandle: function(e, t, a) {
-          return q = "useImperativeHandle", Xe(), se(), bm(e, t, a);
+          return q = "useImperativeHandle", Xe(), ue(), bm(e, t, a);
         },
         useInsertionEffect: function(e, t) {
-          return q = "useInsertionEffect", Xe(), se(), _m(e, t);
+          return q = "useInsertionEffect", Xe(), ue(), _m(e, t);
         },
         useLayoutEffect: function(e, t) {
-          return q = "useLayoutEffect", Xe(), se(), wm(e, t);
+          return q = "useLayoutEffect", Xe(), ue(), wm(e, t);
         },
         useMemo: function(e, t) {
-          q = "useMemo", Xe(), se();
+          q = "useMemo", Xe(), ue();
           var a = Se.current;
           Se.current = no;
           try {
@@ -15707,7 +15707,7 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useReducer: function(e, t, a) {
-          q = "useReducer", Xe(), se();
+          q = "useReducer", Xe(), ue();
           var i = Se.current;
           Se.current = no;
           try {
@@ -15717,10 +15717,10 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useRef: function(e) {
-          return q = "useRef", Xe(), se(), Cm();
+          return q = "useRef", Xe(), ue(), Cm();
         },
         useState: function(e) {
-          q = "useState", Xe(), se();
+          q = "useState", Xe(), ue();
           var t = Se.current;
           Se.current = no;
           try {
@@ -15730,22 +15730,22 @@ Incoming: %s`, q, "[" + t.join(", ") + "]", "[" + e.join(", ") + "]");
           }
         },
         useDebugValue: function(e, t) {
-          return q = "useDebugValue", Xe(), se(), xm();
+          return q = "useDebugValue", Xe(), ue(), xm();
         },
         useDeferredValue: function(e) {
-          return q = "useDeferredValue", Xe(), se(), CC(e);
+          return q = "useDeferredValue", Xe(), ue(), CC(e);
         },
         useTransition: function() {
-          return q = "useTransition", Xe(), se(), _C();
+          return q = "useTransition", Xe(), ue(), _C();
         },
         useMutableSource: function(e, t, a) {
-          return q = "useMutableSource", Xe(), se(), void 0;
+          return q = "useMutableSource", Xe(), ue(), void 0;
         },
         useSyncExternalStore: function(e, t, a) {
-          return q = "useSyncExternalStore", Xe(), se(), Sm(e, t);
+          return q = "useSyncExternalStore", Xe(), ue(), Sm(e, t);
         },
         useId: function() {
-          return q = "useId", Xe(), se(), Om();
+          return q = "useId", Xe(), ue(), Om();
         },
         unstable_isNewReconciler: we
       };
@@ -16193,7 +16193,7 @@ Visit https://reactjs.org/link/error-boundaries to learn more about error bounda
     }
     function s1(e, t) {
       var a = e.tag;
-      if ((e.mode & dt) === Me && (a === ue || a === Pe || a === Ye)) {
+      if ((e.mode & dt) === Me && (a === se || a === Pe || a === Ye)) {
         var i = e.alternate;
         i ? (e.updateQueue = i.updateQueue, e.memoizedState = i.memoizedState, e.lanes = i.lanes) : (e.updateQueue = null, e.memoizedState = null);
       }
@@ -16607,7 +16607,7 @@ Visit https://reactjs.org/link/error-boundaries to learn more about error bounda
       t.type = y;
       var C = t.tag = gk(y), T = ro(y, l), O;
       switch (C) {
-        case ue:
+        case se:
           return $S(t, y), t.type = y = rd(y), O = BS(null, t, y, T, i), O;
         case ie:
           return t.type = y = SE(y), O = eR(null, t, y, T, i), O;
@@ -16676,7 +16676,7 @@ Visit https://reactjs.org/link/error-boundaries to learn more about error bounda
         var k = !1;
         return Bo(a) ? (k = !0, Kh(t)) : k = !1, t.memoizedState = h.state !== null && h.state !== void 0 ? h.state : null, Bg(t), VC(t, h), NS(t, a, l, i), VS(null, t, a, !0, k, i);
       } else {
-        if (t.tag = ue, t.mode & tt) {
+        if (t.tag = se, t.mode & tt) {
           It(!0);
           try {
             h = Qf(null, t, a, l, s, i), y = Gf();
@@ -17228,7 +17228,7 @@ Check the render method of \`` + i + "`.");
           var y = t.elementType;
           return S1(e, t, y, a);
         }
-        case ue: {
+        case se: {
           var C = t.type, T = t.pendingProps, O = t.elementType === C ? T : ro(C, T);
           return BS(e, t, C, O, a);
         }
@@ -17400,7 +17400,7 @@ Check the render method of \`` + i + "`.");
         case Oe:
         case Cn:
         case Ye:
-        case ue:
+        case se:
         case Pe:
         case Ve:
         case jt:
@@ -17750,7 +17750,7 @@ Check the render method of \`` + i + "`.");
       var t = e.alternate, a = e.flags;
       if ((a & Ua) !== Ne) {
         switch (Qt(e), e.tag) {
-          case ue:
+          case se:
           case Pe:
           case Ye:
             break;
@@ -17861,7 +17861,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     function J1(e, t, a, i) {
       if ((a.flags & _o) !== Ne)
         switch (a.tag) {
-          case ue:
+          case se:
           case Pe:
           case Ye: {
             if (!Pr)
@@ -17973,7 +17973,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     }
     function Z1(e) {
       switch (e.tag) {
-        case ue:
+        case se:
         case Pe:
         case Ye: {
           if (e.mode & Ct)
@@ -18205,7 +18205,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
           }
           return;
         }
-        case ue:
+        case se:
         case Pe:
         case pt:
         case Ye: {
@@ -18312,7 +18312,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     function xR(e, t, a) {
       var i = e.alternate, l = e.flags;
       switch (e.tag) {
-        case ue:
+        case se:
         case Pe:
         case pt:
         case Ye: {
@@ -18519,7 +18519,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
       for (; xe !== null; ) {
         var t = xe, a = t.child;
         switch (t.tag) {
-          case ue:
+          case se:
           case Pe:
           case pt:
           case Ye: {
@@ -18639,7 +18639,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     }
     function vx(e, t, a, i) {
       switch (t.tag) {
-        case ue:
+        case se:
         case Pe:
         case Ye: {
           if (t.mode & Ct) {
@@ -18701,7 +18701,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     }
     function gx(e) {
       switch (e.tag) {
-        case ue:
+        case se:
         case Pe:
         case Ye: {
           e.mode & Ct ? (SS(), io(jr | pr, e, e.return), gS(e)) : io(jr | pr, e, e.return);
@@ -18733,7 +18733,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     }
     function Cx(e, t) {
       switch (e.tag) {
-        case ue:
+        case se:
         case Pe:
         case Ye: {
           e.mode & Ct ? (SS(), io(jr, e, t), gS(e)) : io(jr, e, t);
@@ -18743,7 +18743,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     }
     function Rx(e) {
       switch (e.tag) {
-        case ue:
+        case se:
         case Pe:
         case Ye: {
           try {
@@ -18766,7 +18766,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     }
     function Tx(e) {
       switch (e.tag) {
-        case ue:
+        case se:
         case Pe:
         case Ye: {
           try {
@@ -18780,7 +18780,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     }
     function _x(e) {
       switch (e.tag) {
-        case ue:
+        case se:
         case Pe:
         case Ye: {
           try {
@@ -18799,7 +18799,7 @@ Learn more about data fetching with Hooks: https://reactjs.org/link/hooks-data-f
     }
     function wx(e) {
       switch (e.tag) {
-        case ue:
+        case se:
         case Pe:
         case Ye:
           try {
@@ -19502,7 +19502,7 @@ Error message:
         if ((xt & $r) !== yr || !(e.mode & dt))
           return;
         var t = e.tag;
-        if (t !== Oe && t !== ne && t !== ie && t !== ue && t !== Pe && t !== pt && t !== Ye)
+        if (t !== Oe && t !== ne && t !== ie && t !== se && t !== Pe && t !== pt && t !== Ye)
           return;
         var a = We(e) || "ReactComponent";
         if (ey !== null) {
@@ -19542,7 +19542,7 @@ Error message:
     function lk(e) {
       if (Kr && !Kb())
         switch (e.tag) {
-          case ue:
+          case se:
           case Pe:
           case Ye: {
             var t = kn && We(kn) || "Unknown", a = t;
@@ -19586,7 +19586,7 @@ Error message:
         if (e.mode & dt) {
           if (!LR())
             return;
-        } else if (!Dx() || xt !== yr || e.tag !== ue && e.tag !== Pe && e.tag !== Ye)
+        } else if (!Dx() || xt !== yr || e.tag !== se && e.tag !== Pe && e.tag !== Ye)
           return;
         if (uo.current === null) {
           var t = Jn;
@@ -19667,7 +19667,7 @@ This ensures that you're testing the behavior the user would see in the browser.
             typeof i == "function" && (l = !0);
             break;
           }
-          case ue: {
+          case se: {
             (typeof i == "function" || s === Ke) && (l = !0);
             break;
           }
@@ -19720,7 +19720,7 @@ This ensures that you're testing the behavior the user would see in the browser.
       {
         var i = e.alternate, l = e.child, s = e.sibling, f = e.tag, h = e.type, y = null;
         switch (f) {
-          case ue:
+          case se:
           case Ye:
           case ie:
             y = h;
@@ -19755,7 +19755,7 @@ This ensures that you're testing the behavior the user would see in the browser.
       {
         var i = e.child, l = e.sibling, s = e.tag, f = e.type, h = null;
         switch (s) {
-          case ue:
+          case se:
           case Ye:
           case ie:
             h = f;
@@ -19834,7 +19834,7 @@ This ensures that you're testing the behavior the user would see in the browser.
     }
     function gk(e) {
       if (typeof e == "function")
-        return _E(e) ? ie : ue;
+        return _E(e) ? ie : se;
       if (e != null) {
         var t = e.$$typeof;
         if (t === G)
@@ -19853,7 +19853,7 @@ This ensures that you're testing the behavior the user would see in the browser.
         firstContext: i.firstContext
       }, a.sibling = e.sibling, a.index = e.index, a.ref = e.ref, a.selfBaseDuration = e.selfBaseDuration, a.treeBaseDuration = e.treeBaseDuration, a._debugNeedsRemount = e._debugNeedsRemount, a.tag) {
         case Oe:
-        case ue:
+        case se:
         case Ye:
           a.type = rd(e.type);
           break;
@@ -20685,14 +20685,14 @@ const sy = Symbol.for("r2wc.render"), cy = Symbol.for("r2wc.connected"), pc = Sy
 function CD(m, d, p) {
   var S, N, I;
   d.props || (d.props = m.propTypes ? Object.keys(m.propTypes) : []), d.events || (d.events = []);
-  const ee = Array.isArray(d.props) ? d.props.slice() : Object.keys(d.props), R = Array.isArray(d.events) ? d.events.slice() : Object.keys(d.events), le = {}, ue = {}, ie = {}, Oe = {};
+  const ee = Array.isArray(d.props) ? d.props.slice() : Object.keys(d.props), R = Array.isArray(d.events) ? d.events.slice() : Object.keys(d.events), le = {}, se = {}, ie = {}, Oe = {};
   for (const _e of ee) {
     le[_e] = Array.isArray(d.props) ? "string" : d.props[_e];
     const te = ED(_e);
     ie[_e] = te, Oe[te] = _e;
   }
   for (const _e of R)
-    ue[_e] = Array.isArray(d.events) ? {} : d.events[_e];
+    se[_e] = Array.isArray(d.events) ? {} : d.events[_e];
   class ne extends HTMLElement {
     constructor() {
       super(), uy(this, I, !0), uy(this, N), uy(this, S, {}), uy(this, "container"), d.shadow ? this.container = this.attachShadow({
@@ -20706,7 +20706,7 @@ function CD(m, d, p) {
         this[Yl][te] = (Ce) => {
           const Ve = te.replace(/^on/, "").toLowerCase();
           this.dispatchEvent(
-            new CustomEvent(Ve, { detail: Ce, ...ue[te] })
+            new CustomEvent(Ve, { detail: Ce, ...se[te] })
           );
         };
     }
@@ -20784,9 +20784,9 @@ function bD() {
   if (qT) return uv;
   qT = 1;
   var m = pv(), d = Symbol.for("react.element"), p = Symbol.for("react.fragment"), S = Object.prototype.hasOwnProperty, N = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner, I = { key: !0, ref: !0, __self: !0, __source: !0 };
-  function ee(R, le, ue) {
+  function ee(R, le, se) {
     var ie, Oe = {}, ne = null, _e = null;
-    ue !== void 0 && (ne = "" + ue), le.key !== void 0 && (ne = "" + le.key), le.ref !== void 0 && (_e = le.ref);
+    se !== void 0 && (ne = "" + se), le.key !== void 0 && (ne = "" + le.key), le.ref !== void 0 && (_e = le.ref);
     for (ie in le) S.call(le, ie) && !I.hasOwnProperty(ie) && (Oe[ie] = le[ie]);
     if (R && R.defaultProps) for (ie in le = R.defaultProps, le) Oe[ie] === void 0 && (Oe[ie] = le[ie]);
     return { $$typeof: d, type: R, key: ne, ref: _e, props: Oe, _owner: N.current };
@@ -20808,7 +20808,7 @@ function xD() {
    * LICENSE file in the root directory of this source tree.
    */
   return m.NODE_ENV !== "production" && function() {
-    var d = pv(), p = Symbol.for("react.element"), S = Symbol.for("react.portal"), N = Symbol.for("react.fragment"), I = Symbol.for("react.strict_mode"), ee = Symbol.for("react.profiler"), R = Symbol.for("react.provider"), le = Symbol.for("react.context"), ue = Symbol.for("react.forward_ref"), ie = Symbol.for("react.suspense"), Oe = Symbol.for("react.suspense_list"), ne = Symbol.for("react.memo"), _e = Symbol.for("react.lazy"), te = Symbol.for("react.offscreen"), Ce = Symbol.iterator, Ve = "@@iterator";
+    var d = pv(), p = Symbol.for("react.element"), S = Symbol.for("react.portal"), N = Symbol.for("react.fragment"), I = Symbol.for("react.strict_mode"), ee = Symbol.for("react.profiler"), R = Symbol.for("react.provider"), le = Symbol.for("react.context"), se = Symbol.for("react.forward_ref"), ie = Symbol.for("react.suspense"), Oe = Symbol.for("react.suspense_list"), ne = Symbol.for("react.memo"), _e = Symbol.for("react.lazy"), te = Symbol.for("react.offscreen"), Ce = Symbol.iterator, Ve = "@@iterator";
     function jt(b) {
       if (b === null || typeof b != "object")
         return null;
@@ -20836,7 +20836,7 @@ function xD() {
     var Ot = !1, De = !1, pt = !1, Ye = !1, Cn = !1, At;
     At = Symbol.for("react.module.reference");
     function pn(b) {
-      return !!(typeof b == "string" || typeof b == "function" || b === N || b === ee || Cn || b === I || b === ie || b === Oe || Ye || b === te || Ot || De || pt || typeof b == "object" && b !== null && (b.$$typeof === _e || b.$$typeof === ne || b.$$typeof === R || b.$$typeof === le || b.$$typeof === ue || // This needs to include all possible module reference object
+      return !!(typeof b == "string" || typeof b == "function" || b === N || b === ee || Cn || b === I || b === ie || b === Oe || Ye || b === te || Ot || De || pt || typeof b == "object" && b !== null && (b.$$typeof === _e || b.$$typeof === ne || b.$$typeof === R || b.$$typeof === le || b.$$typeof === se || // This needs to include all possible module reference object
       // types supported by any Flight configuration anywhere since
       // we don't know which Flight build this will end up being used
       // with.
@@ -20881,7 +20881,7 @@ function xD() {
           case R:
             var fe = b;
             return St(fe._context) + ".Provider";
-          case ue:
+          case se:
             return qt(b, b.render, "ForwardRef");
           case ne:
             var ve = b.displayName || null;
@@ -21071,7 +21071,7 @@ function xD() {
       }
       if (typeof b == "object")
         switch (b.$$typeof) {
-          case ue:
+          case se:
             return On(b.render);
           case ne:
             return Bn(b.type, G, fe);
@@ -21311,7 +21311,7 @@ Check the top-level render call using <` + fe + ">.");
         var fe;
         if (typeof G == "function")
           fe = G.propTypes;
-        else if (typeof G == "object" && (G.$$typeof === ue || // Note: Memo only checks outer props here.
+        else if (typeof G == "object" && (G.$$typeof === se || // Note: Memo only checks outer props here.
         // Inner props are checked in the reconciler.
         G.$$typeof === ne))
           fe = G.propTypes;
@@ -21459,10 +21459,10 @@ for (let m = 0; m < XT.length; m++)
 const LD = (m) => {
   let d = m.length * 0.75, p = m.length, S, N = 0, I, ee, R, le;
   m[m.length - 1] === "=" && (d--, m[m.length - 2] === "=" && d--);
-  const ue = new ArrayBuffer(d), ie = new Uint8Array(ue);
+  const se = new ArrayBuffer(d), ie = new Uint8Array(se);
   for (S = 0; S < p; S += 4)
     I = dv[m.charCodeAt(S)], ee = dv[m.charCodeAt(S + 1)], R = dv[m.charCodeAt(S + 2)], le = dv[m.charCodeAt(S + 3)], ie[N++] = I << 2 | ee >> 4, ie[N++] = (ee & 15) << 4 | R >> 2, ie[N++] = (R & 3) << 6 | le & 63;
-  return ue;
+  return se;
 }, ND = typeof ArrayBuffer == "function", XE = (m, d) => {
   if (typeof m != "string")
     return {
@@ -21565,12 +21565,12 @@ function FD(m, d) {
         } else if (S === 2) {
           if (dy(p) < 8)
             break;
-          const le = py(p, 8), ue = new DataView(le.buffer, le.byteOffset, le.length), ie = ue.getUint32(0);
+          const le = py(p, 8), se = new DataView(le.buffer, le.byteOffset, le.length), ie = se.getUint32(0);
           if (ie > Math.pow(2, 21) - 1) {
             R.enqueue(IE);
             break;
           }
-          N = ie * Math.pow(2, 32) + ue.getUint32(4), S = 3;
+          N = ie * Math.pow(2, 32) + se.getUint32(4), S = 3;
         } else {
           if (dy(p) < N)
             break;
@@ -22528,13 +22528,13 @@ class uO extends Gu {
     function le() {
       ee("socket closed");
     }
-    function ue(Oe) {
+    function se(Oe) {
       p && Oe.name !== p.name && I();
     }
     const ie = () => {
-      p.removeListener("open", N), p.removeListener("error", ee), p.removeListener("close", R), this.off("close", le), this.off("upgrading", ue);
+      p.removeListener("open", N), p.removeListener("error", ee), p.removeListener("close", R), this.off("close", le), this.off("upgrading", se);
     };
-    p.once("open", N), p.once("error", ee), p.once("close", R), this.once("close", le), this.once("upgrading", ue), this._upgrades.indexOf("webtransport") !== -1 && d !== "webtransport" ? this.setTimeoutFn(() => {
+    p.once("open", N), p.once("error", ee), p.once("close", R), this.once("close", le), this.once("upgrading", se), this._upgrades.indexOf("webtransport") !== -1 && d !== "webtransport" ? this.setTimeoutFn(() => {
       S || p.open();
     }, 200) : p.open();
   }
@@ -23741,11 +23741,8 @@ function xO(m, d, p) {
 }
 const m_ = co.createContext(null), kO = ({ children: m }) => {
   const [d, p] = co.useState(null), [S, N] = co.useState(!1), I = xO();
-  co.useEffect(() => {
-    const R = yy(
-      "https://service-capture-437894375097.us-central1.run.app/",
-      { autoConnect: !0 }
-    );
+  return co.useEffect(() => {
+    const R = yy("https://service-capture-437894375097.us-central1.run.app", { autoConnect: !0 });
     return p(R), R.on("connect", () => {
       N(!0);
     }), R.on("message", () => {
@@ -23753,64 +23750,55 @@ const m_ = co.createContext(null), kO = ({ children: m }) => {
     }), () => {
       R.disconnect();
     };
-  }, []);
-  const ee = co.useCallback(
-    ({ type: R, data: le }) => {
-      let ue = {};
-      R === "success" && (ue = {
-        type: "success",
-        message: "The image capture was successful.",
-        ...le
-      }, window.dispatchEvent(
-        new CustomEvent("multi-event", { detail: { response: ue } })
-      )), R === "finish" && (ue = {
-        type: "finish"
-      }, window.dispatchEvent(
-        new CustomEvent("multi-event", { detail: { response: ue } })
-      )), R === "close" && (ue = {
-        type: "close"
-      }, window.dispatchEvent(
-        new CustomEvent("multi-event", { detail: { response: ue } })
-      )), R === "timeout" && (ue = {
-        type: "timeout"
-      }, window.dispatchEvent(
-        new CustomEvent("multi-event", { detail: { response: ue } })
-      ));
-    },
-    []
-  );
-  return co.useEffect(() => {
-    if (S)
-      return d.on("message", (R) => {
-        const le = {
-          id: R.end2end_id,
-          base64: R.image.base64
-        };
-        ee({ type: "success", data: le });
-      }), () => {
-        d.off("message");
-      };
-  }, [S]), /* @__PURE__ */ vc.jsx(m_.Provider, { value: { online: S, id: I, customEventEmit: ee }, children: m });
+  }, []), /* @__PURE__ */ vc.jsx(m_.Provider, { value: { online: S, id: I, socket: d }, children: m });
 }, DO = () => {
   const m = co.useContext(m_);
   if (!m)
     throw new Error("useSocket must be used within a SocketContextProvider");
   return m;
 }, OO = ({ secret: m, user: d }) => {
-  const { online: p, id: S, customEventEmit: N } = DO(), I = co.useCallback((ee) => {
-    if (ee.data.source === "go-saffe-capture")
-      switch (ee.data.payload.event) {
+  const { online: p, id: S, socket: N } = DO(), I = co.useCallback(({ type: R, data: le }) => {
+    let se = {};
+    R === "success" && (se = {
+      type: "success",
+      message: "The image capture was successful.",
+      ...le
+    }, window.dispatchEvent(
+      new CustomEvent("multi-event", { detail: { ...se } })
+    )), R === "close" && (se = {
+      type: "close"
+    }, window.dispatchEvent(
+      new CustomEvent("multi-event", { detail: { ...se } })
+    )), R === "timeout" && (se = {
+      type: "timeout"
+    }, window.dispatchEvent(
+      new CustomEvent("multi-event", { detail: { ...se } })
+    ));
+  }, []), ee = co.useCallback((R) => {
+    if (R.data.source === "go-saffe-capture")
+      switch (R.data.payload.event) {
         case "close":
-          return N({ type: "close" });
+          return I({ type: "close" });
         case "finish":
-          return N({ type: "finish" });
+          return I({ type: "finish" });
         case "timeout":
-          return N({ type: "timeout" });
+          return I({ type: "timeout" });
       }
   }, []);
-  return co.useEffect(() => (window.addEventListener("message", I), () => {
-    window.removeEventListener("message", I);
-  }), [I]), /* @__PURE__ */ vc.jsx(vc.Fragment, { children: p && /* @__PURE__ */ vc.jsx(
+  return co.useEffect(() => (window.addEventListener("message", ee), () => {
+    window.removeEventListener("message", ee);
+  }), [ee]), co.useEffect(() => {
+    if (p)
+      return N.on("message", (R) => {
+        const le = {
+          id: R.end2end_id,
+          base64: R.image.base64
+        };
+        I({ type: "success", data: le });
+      }), () => {
+        N.off("message");
+      };
+  }, [p]), /* @__PURE__ */ vc.jsx(vc.Fragment, { children: p && /* @__PURE__ */ vc.jsx(
     DD,
     {
       captureKey: m,
