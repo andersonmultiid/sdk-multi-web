@@ -1,11 +1,11 @@
-import { io } from "socket.io-client";
 import {
   createContext,
-  useContext,
-  useState,
-  useEffect,
   useCallback,
+  useContext,
+  useEffect,
+  useState,
 } from "react";
+import { io } from "socket.io-client";
 import { v4 as uuidv4 } from "uuid";
 
 const SocketContext = createContext(null);
@@ -36,14 +36,6 @@ export const SocketContextProvider = ({ children }) => {
     };
   }, []);
 
-  const removeScript = useCallback(() => {
-    const safeId = document.getElementById("GoSaffeCaptureComponent");
-
-    if (safeId) {
-      safeId.remove();
-    }
-  }, []);
-
   const customEventEmit = useCallback(
     ({ type, data }) => {
       let response = {};
@@ -54,37 +46,39 @@ export const SocketContextProvider = ({ children }) => {
           message: "The image capture was successful.",
           ...data,
         };
+        window.dispatchEvent(
+          new CustomEvent("multi-event", { detail: { response } })
+        );
       }
 
       if (type === "finish") {
         response = {
           type: "finish",
         };
-        removeScript();
+        window.dispatchEvent(
+          new CustomEvent("multi-event", { detail: { response } })
+        );
       }
 
       if (type === "close") {
         response = {
           type: "close",
         };
-        removeScript();
+        window.dispatchEvent(
+          new CustomEvent("multi-event", { detail: { response } })
+        );
       }
 
       if (type === "timeout") {
         response = {
           type: "timeout",
         };
+        window.dispatchEvent(
+          new CustomEvent("multi-event", { detail: { response } })
+        );
       }
-
-      const event = new CustomEvent("multi-event", {
-        detail: { response },
-        cancelable: true,
-        bubbles: true,
-      });
-
-      window.dispatchEvent(event);
     },
-    [removeScript]
+    []
   );
 
   useEffect(() => {
@@ -97,8 +91,12 @@ export const SocketContextProvider = ({ children }) => {
 
         customEventEmit({ type: "success", data: response });
       });
+
+      return () => {
+        socket.off("message");
+      };
     }
-  }, [online, customEventEmit]);
+  }, [online]);
 
   return (
     <SocketContext.Provider value={{ online, id, customEventEmit }}>

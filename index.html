@@ -1,38 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar e Remover Script, Componente e Evento</title>
+</head>
+<body>
+    <h1>Adicionar e Remover Script, Componente e Evento</h1>
+
+    <!-- Botões de ação -->
+    <button onclick="carregarScript()">Carregar Componente</button>
+    <button onclick="removerComponente()">Remover Componente e Evento</button>
 
     <script>
-      const script = document.createElement("script");
-      script.type = "module";
-      script.id = "multiSdkCaptureScript";
-      script.src = "dist/multi-sdk-web.es.js";
+        // Variáveis para armazenar o script, o componente e o evento
+        let script;
+        let component;
+        let eventListener;
 
-      document.body.appendChild(script);
+        // Função para carregar o script, o componente e adicionar o evento
+        function carregarScript() {
+            // Criando o elemento <script> dinamicamente
+            script = document.createElement("script");
+            script.type = "module";
+            script.id = "multiSdkCaptureScript";
+            script.src = "dist/multi-web-sdk.es.js"; // Certifique-se de que este caminho está correto
 
-      script.addEventListener("load", () => {
-        const component = document.createElement("multi-id-capture");
+            // Adicionando o script ao corpo do documento
+            document.body.appendChild(script);
 
-        component.setAttribute(
-          "secret",
-          "485340b8-814b-4d70-8609-4a66d37b602d"
-        );
-        component.setAttribute("user", "anderson@gmail.com");
+            // Quando o script for carregado, cria o componente
+            script.addEventListener("load", () => {
+                // Criando o componente <multi-id-capture>
+                component = document.createElement("multi-id-capture");
 
-        document.body.appendChild(component);
+                // Definindo os atributos do componente
+                component.setAttribute("secret", "485340b8-814b-4d70-8609-4a66d37b602d");
+                component.setAttribute("user", "anderson@gmail.com");
 
-        window.addEventListener("multi-event", (e) => {
-          console.log(e.detail);
-        });
-      });
+                // Adicionando o componente à página
+                document.body.appendChild(component);
+
+                // Armazenando a referência do ouvinte de evento para removê-lo depois
+                eventListener = (e) => {
+                    console.log(e.detail);  // Exibindo os detalhes do evento no console
+                };
+
+                // Adicionando um ouvinte de evento para capturar os eventos do componente
+                window.addEventListener("multi-event", eventListener,{once:true});
+            });
+        }
+
+        // Função para remover o script, o componente e o evento
+        function removerComponente() {
+            // Remover o componente se ele existir
+            if (component) {
+                document.body.removeChild(component);
+                component = null;  // Limpar referência
+            }
+
+            // Remover o script se ele existir
+            if (script) {
+                document.body.removeChild(script);
+                script = null;  // Limpar referência
+            }
+
+            // Remover o ouvinte de evento se ele existir
+            if (eventListener) {
+                window.removeEventListener("multi-event", eventListener);
+                eventListener = null;  // Limpar referência
+            }
+        }
     </script>
-  </body>
+</body>
 </html>
