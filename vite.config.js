@@ -11,7 +11,7 @@ export default defineConfig({
     lib: {
       entry: "./src/sdk/index.js",
       name: "MultiIdSdkWeb",
-      fileName: (format) => `multi-sdk.${format}.js`,
+      fileName: (format) => `multi-sdk-web.${format}.js`,
       formats: ["es"],
     },
     rollupOptions: {
